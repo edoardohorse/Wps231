@@ -136,16 +136,13 @@
             window.addEventListener("DOMContentLoaded", sizeNews);
             document.getElementById("previousNews").addEventListener("click", goPreviousNews)
             document.getElementById("nextNews").addEventListener("click", goNextNews)
-            hamburgerEl.addEventListener("click", function(){
-                document.querySelector("nav").classList.add("nav--show");
-                document.querySelector("#overlay").classList.add("overlay--show");
-                hamburgerEl.focus = true;
-            })
-            hamburgerEl.addEventListener("blur", function(){
-                document.querySelector("nav").classList.remove("nav--show");
-                document.querySelector("#overlay").classList.remove("overlay--show");
-                hamburgerEl.focus = false;
-            })
+            // hamburgerEl.addEventListener("mouseover", function(e){
+            //     if(!( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ) {
+            //         e.preventDefault();
+            //     }         
+                                 
+            
+            // })
         </script>
 
 </html>

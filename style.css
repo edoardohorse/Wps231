@@ -249,19 +249,20 @@ article > div {
         padding: 1em;
     }
 
-    .nav--show{
+    #hamburger:focus + nav,
+    #hamburger:hover + nav{
         transform: translate(0%,0%);
+    
     }
-
-/*     #hamburger:hover + nav */
-
-    .overlay--show{
-        z-index: 5 !important;
-        opacity: 1 !important;
+    
+    #hamburger:focus #overlay,
+    #hamburger:hover #overlay{
+        z-index: 5;
+        opacity: 1;
         user-select: auto;
     }
-
-/*     #hamburger:hover  #overlay */
+    
+     
 
 
 }
