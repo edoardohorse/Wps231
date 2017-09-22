@@ -41,7 +41,7 @@ nav a:hover, a:focus{
     display: inline-block;
     margin-top: 1em;
     float: right;
-    z-index: 6;
+    z-index: 13;
 }
 
 
@@ -255,9 +255,9 @@ article > div {
 
 /*     #hamburger:hover + nav */
 
-    #hamburger:focus #overlay{
-        z-index: 5;
-        opacity: 1;
+    .overlay--show{
+        z-index: 5 !important;
+        opacity: 1 !important;
         user-select: auto;
     }
 

@@ -136,11 +136,15 @@
             window.addEventListener("DOMContentLoaded", sizeNews);
             document.getElementById("previousNews").addEventListener("click", goPreviousNews)
             document.getElementById("nextNews").addEventListener("click", goNextNews)
-            hamburgerEl.addEventListener("focus", function(){
+            hamburgerEl.addEventListener("click", function(){
                 document.querySelector("nav").classList.add("nav--show");
+                document.querySelector("#overlay").classList.add("overlay--show");
+                hamburgerEl.focus = true;
             })
             hamburgerEl.addEventListener("blur", function(){
                 document.querySelector("nav").classList.remove("nav--show");
+                document.querySelector("#overlay").classList.remove("overlay--show");
+                hamburgerEl.focus = false;
             })
         </script>
 
