@@ -249,7 +249,7 @@ article > div {
         padding: 1em;
     }
 
-    #hamburger:focus + nav{
+    .nav--show{
         transform: translate(0%,0%);
     }
 
