@@ -1,0 +1,28 @@
+<IfModule mod_rewrite.c>
+
+
+RewriteBase /
+
+# RewriteEngine off
+# RewriteCond %{HTTP_HOST} !^wps231.it$ [NC]  
+# RewriteRule .? http://wps231.it%{REQUEST_URI} [R=301,L]
+
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301]
+
+RewriteEngine on
+# Nascondi index.html dall'URL
+RewriteRule ^index.html$ . [R=301]
+
+
+# RewriteRule ^*.html$ . [L,R=301]
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC]
+RewriteRule ^([^\.]+)$ $1.html [NC]
+</IfModule>
+
+
