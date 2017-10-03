@@ -18,7 +18,9 @@
 
 
     </head>
-    <body>
+        <body>
+            <!-- SDK Facebook -->
+            <div id="fb-root"></div>
         
         <header class="col-9 dark-primary-color">
             <div id="logo"></div>
@@ -44,7 +46,10 @@
             <div class="interlaced"></div>
             <div id="chiSiamo">
                 <p>Chi siamo</p>
-                <span><b>WPS 231 nasce</b> dall'incontro di 2 elementi: WPS, che sta per <b>Work in Progress Solution</b>, in quanto riteniamo che la gestione della Sicurezza, nella tua azienda è un continuo divenire, un continuo crescere e migliorarsi; <b>231</b>, (dal D.Lgs. 231/2001), in quanto <b>proteggiamo</b> la tua Azienda, anche come soggetto giuridico, mediante i migliori processi applicabili, per la prevenzione dei reati aziendali.</span>
+                <span><b>WPS 231 nasce</b> dall'incontro di 2 elementi: WPS, che sta per <b>Work in Progress Solution</b>,
+                    in quanto riteniamo che la gestione della Sicurezza, nella tua azienda è un continuo divenire, un continuo crescere e migliorarsi;
+                    <b>231</b>, (dal D.Lgs. 231/2001), in quanto <b>proteggiamo</b> la tua Azienda, anche come soggetto giuridico,
+                    mediante i migliori processi applicabili, per la prevenzione dei reati aziendali.</span>
             </div>
 
         </main>
@@ -76,7 +81,7 @@
                 <i id="nextNews"></i>
             </div>
         </aside>
-        <footer class="col-9">
+        <footer class="col-12">
 
             <div class="riga">
                 <div class="colonna"><img class="contatti" src="Media/numeroVerde.png"></div>
@@ -172,5 +177,15 @@
             
             // })
         </script>
+
+<script>
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v2.10";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
 </html>

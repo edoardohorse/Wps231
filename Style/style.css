@@ -262,6 +262,7 @@ footer  div:not(.fb-page){
     color: white;
     overflow: hidden;
     position: relative;
+    margin-bottom: 1em;
 }
 
 #numeroVerde {
@@ -277,8 +278,6 @@ footer  div:not(.fb-page){
 
 
 #indirizzo {
-    margin-top: 2em;
-    margin-left: 2em;
     text-align: left;
 }
 
@@ -537,11 +536,12 @@ footer  div:not(.fb-page){
     }  */
 
     footer{
-        height: 200px;
+        min-height: 200px;
     }
 
-    #numeroVerde{
-        /* height: 100%; */
+    #indirizzo {
+        margin-top: 2em;
+        margin-left: 2em;
     }
 }
 

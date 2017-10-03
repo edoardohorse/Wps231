@@ -1,8 +1,15 @@
 <?php
 
 
+    $intestazione   = file_get_contents("Commons/intestazione.html");
+    $content        = file_get_contents("Pagine/Content/clienti.html");
+    $pie            = file_get_contents("Commons/pie.html");
 
-    var_dump( $_SERVER );
+    echo $intestazione;
+    echo $content;
+    echo $pie;
+    
+    
 
 
 ?>
