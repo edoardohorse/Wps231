@@ -6,7 +6,7 @@ SETLOCAL
 REM erase *.html
 set /a i=0
 FOR /R %%i IN ("Content\*") DO (CALL :Copia "%%i" & set /a i=i+1)
-REM copy *.html ..
+ copy index.html ..
 ENDLOCAL
 EXIT /B 0
 
