@@ -3,7 +3,8 @@
     <head>
     <title>Wps231</title>
     <meta charset="UTF-8">
-
+    <meta name="theme-color" content="#fdd835" />
+    
     <meta name="keywords" content="direzione lavori, privacy , adempimenti ambientali, AIA , AUA, autorizzazione integrata, coordinamento e gestione sorveglianza sanitaria, corsi sicurezza sul lavoro, corsi di  formazione per alimentaristi, corsi di formazione per datori di lavoro, dirigenti e preposti, corsi per lavoratori, corsi per R.S.P.P, corso R.L.S., sopralluoghi screening ambientale, rifiuti, emissioni gas e polveri" />
 
     <link rel="stylesheet" href="Style/style.css">
@@ -53,97 +54,121 @@
             <p>News</p>
             <div class="news-list">
             <article>
-                <p>Titolo 1</p>
-                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus est eleifend mi scelerisque, eu consectetur odio lobortis. Integer et.</div>
+                <p>Gas Radon</p>
+                <div><p>Hai un&rsquo;azienda, uno studio medico o un&rsquo;attivit&agrave; commerciale aperta al pubblico?</p>
+                    
+                    <p><strong>Lo sai che</strong>&hellip; hai tempo <strong>entro novembre 2017</strong> per richiedere la misurazione del <strong>gas Radon</strong> nei locali della tua azienda?</p>
+                    
+                    <p><strong>Lo sai che</strong>&hellip; se non lo fai <strong>perderai l&rsquo;agibilit&agrave; del tuo locale</strong>?</p>
+                    
+                    
+                    </div>
+                <a>Leggi altro...</a>
             </article>
-
-            <article>
+            <!-- <article>
                 <p>Titolo 2</p>
-                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus est eleifend mi scelerisque, eu consectetur odio lobortis. Integer et.</div>
-            </article>
-
-            <article>
-                <p>Titolo 3</p>
-                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus est eleifend mi scelerisque, eu consectetur odio lobortis. Integer et.</div>
-            </article>
-
-            <article>
-                <p>Titolo 4</p>
-                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus est eleifend mi scelerisque, eu consectetur odio lobortis. Integer et.</div>
-            </article>
+                <div><p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></div>
+            </article> -->
         </div>
-        <div style="height:50px;">
+        <div style="position: relative;height:30px;margin: 1em;">
             <i id="previousNews"></i>
             <i id="nextNews"></i>
         </div>
     </aside>
-    <script>
+
+    <div id="wrapperNews">
+        <article>
+            <div style="margin-bottom:3em;">
+                <i class="closeNews"></i>
+            </div>
+            <p><strong>Legge Regionale Puglia sull&#39;esposizione al gas Radon</strong></p>
             
-        var onMobile = false;
-        var articles = [].slice.call(document.querySelectorAll("article"));
-        var newsEl  = document.querySelector(".news");
-        var newsListEl  = document.querySelector(".news-list");
-        var hamburgerEl = document.getElementById("hamburger");
-        var newsShowed = 1;
-        var offsetNews = 0;
-        function checkMobile(){
-            if( window.innerWidth > 768 ){
-                onMobile = false;
-            }
-            else{
-                onMobile = true;
-            }
-        }
-        function sizeNews(e){
-            checkMobile();
-            if( onMobile ){
-                
-                for( i in articles){
-                    articles[i].style.width = newsEl.clientWidth - 32+"px";
-                }
-                if( e.type != "DOMContentLoaded" ){
-                    newsListEl.style.transition = "none";
-                    offsetNews = (articles[0].clientWidth + 16) * (newsShowed-1)
-                    newsListEl.style.transform = "translate(-"+ offsetNews +"px,0px)" 
-                    
-                    setTimeout(function(){
-                        newsListEl.style.transition = "transform 300ms";
-                    },100)
-                    
-                }
-            }   
-            else{
-                for( i in articles){
-                    articles[i].style.width = "";
-                }
-            }
-        }
-        function goPreviousNews(){
-            if( newsShowed > 1 && onMobile ){
-                offsetNews -= articles[0].clientWidth + 16
-                newsListEl.style.transform = "translate(-"+ offsetNews +"px,0px)"
-                newsShowed--
-            }
-        }
-        function goNextNews(){
-            if( newsShowed < articles.length && onMobile){
-                offsetNews += articles[0].clientWidth + 16
-                newsListEl.style.transform = "translate(-"+ offsetNews +"px,0px)"
-                newsShowed++
-            }
-        }
-        window.onresize = sizeNews;
-        window.addEventListener("DOMContentLoaded", sizeNews);
-        document.getElementById("previousNews").addEventListener("click", goPreviousNews)
-        document.getElementById("nextNews").addEventListener("click", goNextNews)
-        // hamburgerEl.addEventListener("mouseover", function(e){
-        //     if(!( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ) {
-        //         e.preventDefault();
-        //     }         
-                                
-        
-        // })
-    </script>
+            <p>&nbsp;</p>
+            
+            <p>La Regione Puglia ha approvato la <strong>Legge Regionale 3 novembre 2016, n. 30</strong>, al fine di&nbsp;assicurare il pi&ugrave; alto livello di protezione&nbsp;e tutela della salute pubblica dai rischi derivanti dalla esposizione dei cittadini&nbsp;alle emissioni di gas radon negli edifici residenziali e non residenziali.</p>
+            
+            <p>Al fine di perseguire gli obiettivi suddetti, coerentemente con il Decreto Legislativo 17 marzo 1995, n. 230,&nbsp;<strong>la Regione ha fissato livelli limiti di riferimento di esposizione al gas radon</strong>&nbsp;per tutte le nuove costruzioni, e coerenti azioni di monitoraggio e risanamento per gli edifici esistenti.</p>
+            
+            <p>&nbsp;</p>
+            
+            <table cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td style="vertical-align:top; width:162.95pt">
+                        <p><strong>Chi sono i soggetti interessati da questa legge?</strong></p>
+            
+                        <p>&nbsp;</p>
+                        </td>
+                        <td style="vertical-align:top; width:325.95pt">
+                        <p>Per quanto riguarda:</p>
+            
+                        <ul>
+                            <li>gli edifici di nuova costruzione, i&nbsp;soggetti obbligati&nbsp;sono i <strong>proprietari degli immobili;</strong></li>
+                            <li>gli edifici gi&agrave; esistenti, i soggetti obbligati&nbsp;sono <strong>gli esercenti</strong> di tutte le attivit&agrave; aperte al pubblico (studi medici, negozi, biblioteche,&hellip;) e di quelle relative all&rsquo;istruzione (asili nido, scuole materne, scuole di grado superiore,&hellip;).</li>
+                        </ul>
+            
+                        <p>&nbsp;</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:top; width:162.95pt">
+                        <p><strong>Che cosa bisogna fare?</strong></p>
+            
+                        <p>&nbsp;</p>
+                        </td>
+                        <td style="vertical-align:top; width:325.95pt">
+                        <p>I soggetti obbligati identificati dalla legge devono:</p>
+            
+                        <ul>
+                            <li><strong>in caso di nuova costruzione</strong>: effettuare studi preliminari&nbsp;del suolo e del sottosuolo seguendo prescrizioni in materia di costruzione di manufatti edilizi, tutti da definire in fase di progetto, nonch&eacute; le misure in tutti i locali dell&rsquo;immobile interessato, al fine del rilascio della certificazione di agibilit&agrave;;</li>
+                            <li><strong>in caso di edificio esistente</strong>: avviare le misurazioni dei livelli del gas radon in tutti i locali dell&rsquo;immobile interessato, e trasmettere gli esiti entro un mese dalla conclusione del rilevamento al comune interessato e ad ARPA Puglia.</li>
+                        </ul>
+            
+                        <p>&nbsp;</p>
+            
+                        <p>La trasmissione degli esiti deve essere effettuata tramite relazione scritta redatta sotto la responsabilit&agrave; di un tecnico abilitato ad effettuare le misurazioni.</p>
+            
+                        <p>&nbsp;</p>
+            
+                        <p>I livelli limite di riferimento sono misurati con un valore medio di concentrazione annuale suddiviso in due semestri&nbsp;(primaverile/estivo - autunnale/invernale) tramite strumentazione passiva (dosimetri).</p>
+            
+                        <p>&nbsp;</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:top; width:162.95pt">
+                        <p><strong>Cosa accade in caso di mancato rispetto della norma?</strong></p>
+            
+                        <p>&nbsp;</p>
+                        </td>
+                        <td style="vertical-align:top; width:325.95pt">
+                        <p>In caso di mancata trasmissione delle misurazioni relative agli edifici esistenti,&nbsp;il comune concede un ulteriore termine di trenta giorni; la eventuale infruttuosa scadenza degli adempimenti comporter&agrave; la&nbsp;<strong>sospensione per dettato di legge della certificazione di agibilit&agrave;.</strong></p>
+            
+                        <p>&nbsp;</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:top; width:162.95pt">
+                        <p><strong>Ogni quanto tempo devo rinnovare le attivit&agrave; di monitoraggio?</strong></p>
+            
+                        <p>&nbsp;</p>
+                        </td>
+                        <td style="vertical-align:top; width:325.95pt">
+                        <p>Per le nuove costruzioni le attivit&agrave; di monitoraggio, devono essere compiute ogni <strong>dieci anni</strong>, calcolati dalla data di rilascio della certificazione di agibilit&agrave; dell&rsquo;immobile.</p>
+            
+                        <p>Per gli edifici esistenti le attivit&agrave; di rinnovo devono essere compiute a pena di ogni cinque anni dall&rsquo;ultimo monitoraggio. Tuttavia, in caso di superamento del livello limite di riferimento per concentrazione bisogna dare avvio ad una procedura di risanamento.</p>
+            
+                        <p>&nbsp;</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p>&nbsp;</p>
+            </article>
+    </div>
+
+    <script src="main.js"></script>
         <footer class="col-9">
             <div id="numeroVerde"></div>
 

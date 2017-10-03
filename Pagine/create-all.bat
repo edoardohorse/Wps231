@@ -14,8 +14,9 @@ EXIT /B 0
     SET index=index
     IF NOT %~n1 == index (
         type ..\Commons\intestazione-full.html >  "%~n1".html && type Content\%~n1.html >> "%~n1".html && type ..\Commons\pie-full.html >> "%~n1".html
-        ) ELSE (
-            type ..\Commons\intestazione.html >  "%~n1".html && type Content\%~n1.html >> "%~n1".html && type ..\Commons\pie.html >> "%~n1".html )
+        )
+        REM  ELSE (
+        REM     type ..\Commons\intestazione.html >  "%~n1".html && type Content\%~n1.html >> "%~n1".html && type ..\Commons\pie.html >> "%~n1".html )
 
     REM type ..\Commons\intestazione.html >  "%~n1".html
     REM type Content\%~n1.html >> "%~n1".html
