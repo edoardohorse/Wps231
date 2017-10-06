@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
 
-
+DirectoryIndex index.html
 RewriteBase /
 
 # RewriteEngine off
@@ -18,11 +18,12 @@ RewriteRule ^index.html$ . [R=301]
 
 
 # RewriteRule ^*.html$ . [L,R=301]
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.php [NC]
-RewriteRule ^([^\.]+)$ $1.html [NC]
+RewriteEngine off
+RewriteRule ^Pagine/(.*)$ 1$ [L,QSA]
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^([^\.]+)$ $1.php [NC]
+# RewriteRule ^([^\.]+)$ $1.html [NC]
 </IfModule>
 
 
