@@ -115,23 +115,31 @@ function News( news ){
         setTimeout(function(){
             this.wrapperNewsFullPage.classList.add("overlay");
             this.newsFullPage.classList.add("open");
-        }.bind(this),50)
+        }.bind(this),300)
         
         
         this.isOpened = true;
+        window.addEventListener("keydown", this.close.bind(this))
     }
 
-    this.close = function(){
-        this.wrapperNewsFullPage.classList.remove("overlay");
-        this.newsFullPage.classList.remove("open");
+    this.close = function(e){
+        if( e instanceof KeyboardEvent && e.keyCode != 27 )
+            return;
+        else{
 
-        document.body.style.overflow = "auto";
-        
-        setTimeout(function(){
-            this.newsFullPage.classList.add("hidden");
-        }.bind(this),350)
+            this.wrapperNewsFullPage.classList.remove("overlay");
+            this.newsFullPage.classList.remove("open");
 
-        this.isOpened = false;
+            document.body.style.overflow = "auto";
+            
+            setTimeout(function(){
+                this.newsFullPage.classList.add("hidden");
+            }.bind(this),350)
+
+            this.isOpened = false;
+
+            window.removeEventListener("keypress",this.close);
+        }
     }
 
     this.toggle = function(){
@@ -145,3 +153,4 @@ function News( news ){
 
 
 }
+

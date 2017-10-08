@@ -1,0 +1,6 @@
+AuthType Basic
+AuthName "Area Protetta"
+AuthUserFile /web/htdocs/www.wps231.it/home/Editor/.htpasswd
+require valid-user
+
+DirectoryIndex index.php
