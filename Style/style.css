@@ -131,7 +131,7 @@ aside{
 }
 
  .news-list article div p{
-    margin-bottom: .5em;
+    margin-bottom: 0;
     margin-top: 0;
 }
 .news-list article > div {
@@ -148,6 +148,7 @@ aside{
 
 .news a{
     color: skyblue;
+    cursor: pointer;
 }
 
 .news a:active{
@@ -328,8 +329,13 @@ footer  div:not(.fb-page){
     transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
     background-color:rgba(190, 208, 222,1);
     overflow: auto;
+    min-height: 75%;
 }
 
+
+article.hidden{
+    display: none;
+}
 
 
 #wrapperNews {
@@ -390,7 +396,6 @@ footer  div:not(.fb-page){
     article.open{
         transform: translate(0,0) !important;
     }
-
 
 }
 
@@ -597,7 +602,6 @@ footer  div:not(.fb-page){
     }
 
     #indirizzo {
-        margin-top: 2em;
         margin-left: 2em;
     }
 
@@ -610,7 +614,9 @@ footer  div:not(.fb-page){
         opacity: 0;
         transition: transform 350ms, opacity 250ms;
         transform: translate(0,15%);
-        box-shadow: 0px 0px 2px 0px rgba(255,255,255,255.12), 0px 2px 2px 0px rgba(255,255,255,255.24)
+        box-shadow: 0px 0px 2px 0px rgba(255,255,255,255.12), 0px 2px 2px 0px rgba(255,255,255,255.24);
+        min-height: 200px;
+        /* height: auto; */
     }
 
     article.open{

@@ -1,7 +1,9 @@
 var onMobile = false;
-var articles = [].slice.call(document.querySelectorAll(".news-list article"));
-var newsEl  = document.querySelector(".news");
+var allNewsPreviews = [].slice.call(document.querySelectorAll(".news-list article"));
+var allNewsFullPage = [].slice.call(document.querySelectorAll("#wrapperNews article"));
+var newsEl = document.querySelector(".news");
 var newsListEl  = document.querySelector(".news-list");
+
 var hamburgerEl = document.getElementById("hamburger");
 var newsShowed = 1;
 var offsetNews = 0;
@@ -13,16 +15,17 @@ function checkMobile(){
         onMobile = true;
     }
 }
+
 function sizeNews(e){
     checkMobile();
     if( onMobile ){
         
-        for( i in articles){
-            articles[i].style.width = newsEl.clientWidth - 32+"px";
+        for( i in allNewsPreviews){
+            allNewsPreviews[i].style.width = newsEl.clientWidth - 32+"px";
         }
         if( e.type != "DOMContentLoaded" ){
             newsListEl.style.transition = "none";
-            offsetNews = (articles[0].clientWidth + 16) * (newsShowed-1)
+            offsetNews = (allNewsPreviews[0].clientWidth + 16) * (newsShowed-1)
             newsListEl.style.transform = "translate(-"+ offsetNews +"px,0px)" 
             
             setTimeout(function(){
@@ -32,21 +35,21 @@ function sizeNews(e){
         }
     }   
     else{
-        for( i in articles){
-            articles[i].style.width = "";
+        for( i in allNewsPreviews){
+            allNewsPreviews[i].style.width = "";
         }
     }
 }
 function goPreviousNews(){
     if( newsShowed > 1 && onMobile ){
-        offsetNews -= articles[0].clientWidth + 16
+        offsetNews -= allNewsPreviews[0].clientWidth + 16
         newsListEl.style.transform = "translate(-"+ offsetNews +"px,0px)"
         newsShowed--
     }
 }
 function goNextNews(){
-    if( newsShowed < articles.length && onMobile){
-        offsetNews += articles[0].clientWidth + 16
+    if( newsShowed < allNewsPreviews.length && onMobile){
+        offsetNews += allNewsPreviews[0].clientWidth + 16
         newsListEl.style.transform = "translate(-"+ offsetNews +"px,0px)"
         newsShowed++
     }
@@ -58,40 +61,77 @@ document.getElementById("nextNews").addEventListener("click", goNextNews)
 
 var allNews = [];
 
-var allNewsEl = [].slice.call(document.querySelectorAll("#wrapperNews article"));
-allNewsEl.forEach(
-    function(article){
 
-        allNews.push( new news(article) );
+allNewsPreviews.forEach(
+    function( news ){
+
+        allNews.push( new News( news ) );
 
     }
 )
 
-var i = 0;
-articles.forEach(function(news){
-    news.querySelector("a").addEventListener("click", allNews[i++].open)
-})
 
 
-function news( article ){
 
-    isOpened = false;
-    el = article;
-    parent = el.parentElement;
-    
+function News( news ){
+
+    this.isOpened = false;
+    this.newsPreview = news
+    this.newsFullPage = allNewsFullPage[ allNewsPreviews.indexOf(news) ]
+    this.wrapperNewsFullPage = this.newsFullPage.parentElement    
+
+    this.init = function(){
+
+        var div = document.createElement("div");
+        var i = document.createElement("i");
+        var readMore = document.createElement("a");
+
+        div.style.marginBottom = "3em";
+        
+        i.classList.add("closeNews");
+        
+        readMore.setAttribute("data-link","true");
+        readMore.innerText="Leggi altro...";
+
+        this.newsFullPage.classList.add("hidden");
+
+
+        div.appendChild(i);
+        this.newsFullPage.insertBefore(div, this.newsFullPage.children[0] );
+        this.newsPreview.appendChild( readMore );
+        
+
+
+        this.newsFullPage.querySelector(".closeNews").addEventListener("click", this.close.bind(this))
+        readMore.addEventListener("click", this.open.bind(this))
+    }
 
     this.open = function(){
-        parent.classList.add("overlay");
-        el.classList.add("open");
+        
+        this.newsFullPage.classList.remove("hidden");
+        
+        document.body.style.overflow = "hidden";
 
-        isOpened = true;
+        setTimeout(function(){
+            this.wrapperNewsFullPage.classList.add("overlay");
+            this.newsFullPage.classList.add("open");
+        }.bind(this),50)
+        
+        
+        this.isOpened = true;
     }
 
     this.close = function(){
-        parent.classList.remove("overlay");
-        el.classList.remove("open");
+        this.wrapperNewsFullPage.classList.remove("overlay");
+        this.newsFullPage.classList.remove("open");
 
-        isOpened = false;
+        document.body.style.overflow = "auto";
+        
+        setTimeout(function(){
+            this.newsFullPage.classList.add("hidden");
+        }.bind(this),350)
+
+        this.isOpened = false;
     }
 
     this.toggle = function(){
@@ -101,6 +141,7 @@ function news( article ){
             this.open();
     }
 
-    el.querySelector(".closeNews").addEventListener("click", this.close.bind(this))
+    this.init();
+
 
 }
