@@ -1,7 +1,12 @@
 <html>
     <head>
 
-        <meta charset="UTF-8">
+        <link rel="stylesheet" href="news.css">
+        <link rel="shortcut icon" href="../Media/logo small.ico" type="image/x-icon" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
 
     </head>
     <body>
@@ -9,22 +14,25 @@
         <aside id="listNews">
             <p>Tutte le news</p>
             <div id="wrapperNews">
-                <article class="news"></article>
+                <!--<article class="news">Radon</article>-->
             </div>
-            <button id="Salva">Salva</button>
+            <button id="Salva" disabled>Salva</button>
         </aside>
         <main>
-            <p id="titoloNews"></p>
+            <input type="text" id="titoloNews" tabindex=""></input>
             <div id="preview">
+                <h1>Preview</h1>
                 <a id="editorPreview" href="#">Modifica</a>
                 <div id="wrapperPreview"></div>
 
             </div>
-            <div id="Articolo">
+            <div id="articolo">
+                <h1>Articolo</h1>
                 <a id="editorArticolo" href="#">Modifica</a>
                 <div id="wrapperArticle"></div>
             </div>
         </main>
         
     </body>
+    <script src="news.js"></script>
 </html>
