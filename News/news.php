@@ -8,6 +8,7 @@
         public $preview = null;
         public $article = null;
         public $contentPreview = null;
+        public $titleNews = null
         public $contentArticle = null;
 
         function __construct( $name ){
@@ -52,7 +53,7 @@
     // var_dump($allNews);
     // echo $allNews['Radon']->toJson();
 
-    
+
 
 
 
