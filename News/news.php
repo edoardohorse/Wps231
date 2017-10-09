@@ -1,14 +1,14 @@
 <?php
 
-    var_dump(scandir("."));
+    // var_dump(scandir("."));
 
     class News{
 
         public $name = null;
         public $preview = null;
         public $article = null;
-        private $contentPreview = null;
-        private $contentArticle = null;
+        public $contentPreview = null;
+        public $contentArticle = null;
 
         function __construct( $name ){
             $this->name = $name;
@@ -26,16 +26,20 @@
             if( $this->preview == null ){
                 die("Non esiste il file ");
             }
-            $this->contentPreview = file_get_contents($this->preview);
+            $this->contentPreview = utf8_encode(file_get_contents($this->preview));
         }
 
         public function fetchContentArticle(){
-            $this->contentArticle = file_get_contents($this->article);
+            $this->contentArticle = utf8_encode(file_get_contents($this->article));
         }
 
         public function fetchAllContent(){
             $this->fetchContentArticle();
             $this->fetchContentPreview();
+        }
+
+        public function toJson(){
+            return json_encode($this);
         }
     }
 
@@ -44,11 +48,11 @@
 
     getAllNews($allNews);
     fetchAllNews($allNews);
-    var_dump($allNews);
+    // echo($allNews['Radon']->getContentArticle());
+    // var_dump($allNews);
+    // echo $allNews['Radon']->toJson();
 
-
-
-
+    
 
 
 
