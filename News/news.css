@@ -27,6 +27,75 @@ body{
 aside{
     float: left;
     height: 100%;
-    width: 45%;
+    width: 35%;
     display: inline-block;
+}
+
+main{
+    float: right;
+    height: 100%;
+    width: 65%;
+    display: inline-block;
+}
+
+main > div{
+    position:relative;
+    border: 1px solid black;
+    margin:1em;
+    padding:1em;
+}
+
+#preview{
+
+    min-height: 250px
+
+}
+
+#articolo{
+    max-height: 500px;
+    overflow:auto;
+    text-align:justify;
+}
+
+#wrapperNews {
+    width: 350px;
+    height: 600px;
+    padding-left: 2em;
+}
+
+#wrapperNews .news {
+    height: 60px;
+    width: 100%;
+    padding: .9em;
+    background-color: white;
+    margin-bottom: 1em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#wrapperNews .news:hover{
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+/* #wrapperNews .news:active {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+} */
+
+.ghost{
+      opacity:1;
+    background: #000000;
+}
+
+.grip {
+    background-image: url(grip.svg);
+    height: 22px;
+    width: 22px;
+    display: inline-block;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-right: .5em;
 }

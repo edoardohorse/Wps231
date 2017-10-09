@@ -24,6 +24,11 @@ RewriteRule ^Pagine/(.*)$ 1$ [L,QSA]
 # RewriteCond %{REQUEST_FILENAME} !-f
 # RewriteRule ^([^\.]+)$ $1.php [NC]
 # RewriteRule ^([^\.]+)$ $1.html [NC]
+
+
+
+
+
 </IfModule>
 
 

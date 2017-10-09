@@ -1,6 +1,62 @@
 <?php
 
+    // echo "debug_mode<br>";
     // var_dump(scandir("."));
+
+    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        $_SESSION["allNews"] = array();
+        
+    }
+    
+    
+    switch($_GET["action"]){
+        case "fetch":{
+            if( $_GET["name"] == "all" || !isset($_GET["name"]) ){
+                
+                getAllNews();
+                fetchAllNews();
+
+                // echo "debug_mode<br>";
+                // var_dump($_GET);
+                // var_dump($_SESSION["allNews"]);
+                // die();
+
+                echo json_encode($_SESSION["allNews"]);
+
+                
+            }
+            else{
+                echo "No";
+            }
+            break;
+        }
+        case "rename":{
+            $fileName  = $_GET["fileName"];
+            $newName   = $_GET["newName"];
+            
+            // echo "debug_mode<br>";
+            // var_dump($_GET);
+            // var_dump($_SESSION["allNews"]);
+            // die();
+            
+            
+            $_SESSION["allNews"][$fileName]->renameFile($newName);
+            
+            $_SESSION["allNews"][$newName] = $_SESSION["allNews"][$fileName];
+            unset($_SESSION["allNews"][$fileName]);
+            
+            echo "Rinominato ".$_SESSION["allNews"][$newName]->fileName;
+            // var_dump($_SESSION["allNews"]);
+            // var_dump($newName);
+            break;
+        }
+        // case "":{
+        //     break;
+        // }
+    }
+
+
 
 
     class News{
@@ -9,7 +65,7 @@
         public $previewFile = null;
         public $articleFile = null;
         public $contentPreview = null;
-        public $titleNews = null;
+        public $fileName = null;
         public $contentArticle = null;
 
         function __construct( $name ){
@@ -45,18 +101,17 @@
             
             $newPreviewFile = $this->previewFile;
             $newArticleFile = $this->articleFile;
-                        
-            $newPreviewFile = str_replace($this->titleNews, $newName, $newPreviewFile);
-            $newArticleFile = str_replace($this->titleNews, $newName, $newArticleFile);
-            $this->titleNews = $newName;
-
+            
+            $newPreviewFile = str_replace($this->fileName, $newName, $newPreviewFile);
+            $newArticleFile = str_replace($this->fileName, $newName, $newArticleFile);
+            $this->fileName = $newName;
+            
             rename($this->previewFile, $newPreviewFile);
             rename($this->articleFile, $newArticleFile);
-
+            
             $this->previewFile = $newPreviewFile;
             $this->articleFile = $newArticleFile;
-
-
+            
         }
 
         public function toJson(){
@@ -64,29 +119,29 @@
         }
     }
 
-    $allNews = array();
 
 
-    getAllNews($allNews);
-    fetchAllNews($allNews);
-    //  echo $allNews['Radon']->toJson();
-    //$allNews['Radon']->renameFile("Prova");
-    // echo($allNews['Radon']->getContentArticle());
-    //var_dump($allNews);
-    echo json_encode($allNews);
+    //  echo $_SESSION["allNews"]['Radon']->toJson();
+    //$_SESSION["allNews"]['Radon']->renameFile("Prova");
+    // echo($_SESSION["allNews"]['Radon']->getContentArticle());
+    //var_dump($_SESSION["allNews"]);
+    
 
 
 
 
 
-    function fetchAllNews($allNews){
+    function fetchAllNews(){
 
-        foreach($allNews as $news){
+        foreach($_SESSION["allNews"] as $news){
             $news->fetchAllContent();
         }
     }
 
-    function getAllNews(&$allNews){
+    function getAllNews(){
+
+        $_SESSION["allNews"] = array();
+
         $i = 0;
         foreach( scandir(".") as $dir  ){
             $strPreview = substr($dir, 0, strpos($dir, "_preview"));
@@ -97,14 +152,14 @@
 
             if(  $strPreview != FALSE ){        // Preview
             
-                if( isset($allNews[$strPreview]) ){
-                    $allNews[$strPreview]->previewFile = $dir;
+                if( isset($_SESSION["allNews"][$strPreview]) ){
+                    $_SESSION["allNews"][$strPreview]->previewFile = $dir;
                 }
                 else{
                     $news = new News( $strPreview );
                     $news->previewFile      = $dir;
-                    $news->titleNews        = $strPreview;       
-                    $allNews[ $strPreview ] = $news;
+                    $news->fileName        = $strPreview;       
+                    $_SESSION["allNews"][ $strPreview ] = $news;
 
                     
                 }
@@ -114,14 +169,14 @@
 
             if($strArticle != FALSE){           // Article
 
-                if( isset($allNews[$strArticle]) ){
-                    $allNews[$strArticle]->articleFile = $dir;
+                if( isset($_SESSION["allNews"][$strArticle]) ){
+                    $_SESSION["allNews"][$strArticle]->articleFile = $dir;
                 }
                 else{
                     $news = new News( $strArticle );
                     $news->articleFile = $dir;
-                    $news->titleNews        = $strArticle;
-                    $allNews[ $strArticle ] = $news;
+                    $news->fileName = $strArticle;
+                    $_SESSION["allNews"][ $strArticle ] = $news;
                 }
                 continue;
             }
