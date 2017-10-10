@@ -1,6 +1,7 @@
 <html>
     <head>
 
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="news.css">
         <link rel="shortcut icon" href="../Media/logo small.ico" type="image/x-icon" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -13,11 +14,12 @@
 
         <aside id="listNews">
             <p>Tutte le news</p>
+            <input type="text" id="fileName" disabled tabindex=""></input>
+            <button id="fileNameSalva" disabled>Salva</button>
             <div id="wrapperNews">
                 
+                <button id="sortSave" disabled>Salva</button>
             </div>
-            <input type="text" id="fileName" disabled tabindex=""></input>
-            <button id="Salva" disabled>Salva</button>
         </aside>
         <main>
             <div id="preview">
@@ -26,15 +28,15 @@
                 <div id="wrapperPreview"></div>
 
             </div>
-            <div id="articolo">
+            <div id="article">
                 <h1>Articolo</h1>
-                <a id="editorArticolo" href="#">Modifica</a>
+                <a id="editorArticle" href="#">Modifica</a>
                 <div id="wrapperArticle"></div>
             </div>
         </main>
         
     </body>
     <script src="Sortable-min.js"></script>
-    <script src="news.js"></script>
+    <script src="news.js"  charset="UTF-8"></script>
     
 </html>

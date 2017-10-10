@@ -1,10 +1,11 @@
 var wrapperPreviewEl    = document.querySelector("#wrapperPreview");
 var linkEditorPreview   = document.querySelector("#editorPreview");
 var wrapperArticleEl    = document.querySelector("#wrapperArticle");
-var linkEditorArticle   = document.querySelector("#editorArticolo");
+var linkEditorArticle   = document.querySelector("#editorArticle");
 var fileName            = document.querySelector("#fileName");
 var wrapperNews         = document.querySelector("#wrapperNews");
-var buttonSave          = document.querySelector("#Salva");
+var buttonFileNameSave  = document.querySelector("#fileNameSalva");
+var buttonSortSave      = document.querySelector("#sortSalva");
 var listNews            = [].slice.call(document.querySelectorAll(".news"));
 
 var allNews = []
@@ -63,10 +64,10 @@ function init(){
     })
 
     fileName.addEventListener("change", function(){
-        buttonSave.disabled = false;
+        buttonFileNameSave.disabled = false;
         
         
-        buttonSave.addEventListener("click", function(){
+        buttonFileNameSave.addEventListener("click", function(){
             selectedNews.modifyTitle(fileName.value);
             this.disabled = true;
             
@@ -103,6 +104,18 @@ function news(obj){
     }
 
     this.modifyTitle = function(newTitle){
+        var alreadyUsed = false;
+        allNews.filter(function(news){
+            if(news.fileName == newTitle)
+                alreadyUsed = true;
+        })
+        
+        if( alreadyUsed ){
+            alert("Questo titolo e' gia' usato");
+            fileName.value = this.fileName;
+            return;
+        }
+
         var self = this;
         var query = `?action=rename&fileName=${this.fileName}&newName=${newTitle}`;
         xmlHttp.open("GET", "news.php"+query);
@@ -149,4 +162,4 @@ function news(obj){
 
 fetchNews();
 //allNews[0].selectNews();
-var sortable = Sortable.create(wrapperNews, {animation:200, ghostClass:"ghost",handle: ".grip"});
+var sortable = Sortable.create(wrapperNews, {animation:200, ghostClass:"ghost",handle: ".news"});
