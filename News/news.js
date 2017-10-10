@@ -103,6 +103,7 @@ function news(obj){
     }
 
     this.modifyTitle = function(newTitle){
+        var self = this;
         var query = `?action=rename&fileName=${this.fileName}&newName=${newTitle}`;
         xmlHttp.open("GET", "news.php"+query);
         xmlHttp.onreadystatechange = function(e){
@@ -111,15 +112,17 @@ function news(obj){
                     document.body.innerHTML = this.response;
                     return;
                 }
+                resultObj = JSON.parse(this.response);
 
-                
-                this.anyChanges = true;
-                this.fileName = newTitle;
+                // debugger
+                // this.anyChanges = true;
+                self.fileName = resultObj.result;
+
         
-                this.articleEl.querySelector("span").innerHTML = this.fileName;
-                console.log(this.response);
+                self.articleEl.querySelector("span").innerHTML = self.fileName;
+                console.log(resultObj.message);
             }
-        }.bind(this)
+        };
         xmlHttp.send();
         
         

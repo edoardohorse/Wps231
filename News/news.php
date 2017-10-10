@@ -35,7 +35,7 @@
             $fileName  = $_GET["fileName"];
             $newName   = $_GET["newName"];
             
-            // echo "debug_mode<br>";
+            //  echo "debug_mode<br>";
             // var_dump($_GET);
             // var_dump($_SESSION["allNews"]);
             // die();
@@ -46,7 +46,10 @@
             $_SESSION["allNews"][$newName] = $_SESSION["allNews"][$fileName];
             unset($_SESSION["allNews"][$fileName]);
             
-            echo "Rinominato ".$_SESSION["allNews"][$newName]->fileName;
+            echo (new Result(
+                $newName,
+                "Rinominato con successo ".$newName))->toJson();
+            
             // var_dump($_SESSION["allNews"]);
             // var_dump($newName);
             break;
@@ -56,7 +59,22 @@
         // }
     }
 
+    class Result{
+        public $message = null;
+        public $result  = null;
 
+        function __construct($result, $message = null){
+            $this->result = $result;
+            $this->message = $message;
+        }
+
+        public function toJson(){
+            if( $this->message || $this->result )
+                return json_encode($this);
+            else
+                die("Result vuoto");
+        }
+    }
 
 
     class News{
