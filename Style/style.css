@@ -6,6 +6,11 @@
 .secondary-text-color  { color: #757575; }
 .divider-color         { border-color: #BDBDBD; }
 
+@font-face {
+    font-family: Blood;
+    src: url(Blood.ttf);
+}
+
 
 * {
     box-sizing: border-box;
