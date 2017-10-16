@@ -137,6 +137,7 @@ aside{
 
 
 
+
 .news-list article > p {
     text-transform: uppercase;
     font-weight: 700;
@@ -187,7 +188,7 @@ aside{
     transition: transform 300ms;
     transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
     /* height: 60%; */
-    overflow: hidden;
+    overflow: auto;
 }
 
 #overlay {
@@ -223,7 +224,15 @@ aside{
 }
 
 
+aside section {
+    position: relative;
+    height: 250px;
+}
 
+section img{
+    width:250px;
+    margin-top:1em;
+}
 
 #chiSiamo {
     display: block;
@@ -278,6 +287,7 @@ footer{
     text-align: center;
 }
 
+
 #slogan{
     padding-top: 2em;
     font-size: 23px;"
@@ -292,13 +302,27 @@ footer div{
     margin-bottom: 1em;
 }
 
+#facebookButton{
+  height: 45px;
+  width: 45px;
+  position: relative;
+  background-size: contain;
+  background-image: url("../Media/facebook-icon.svg");
+  cursor: pointer;
+  /* top: 0; */
+  /* margin-right: 2em; */
+  display: inline-block;
+}
+
 .fb-page{
     margin: 0;
+    /* float: right; */
+    /* display: block !important; */
 }
 
 #numeroVerde {
     background-image: url("../Media/numeroVerde-min.png");
-    width: 300px;
+    width: 235px;
     height: 150px;
     position: relative;
     background-repeat: no-repeat;
@@ -310,7 +334,7 @@ footer div{
 
 #indirizzo {
     text-align: left;
-    width:250px;
+    /* width:250px; */
     overflow: hidden;
 }
 
@@ -510,7 +534,7 @@ article.hidden{
         height: calc( 100% - 300px);
         min-height: 500px;
         /* padding-top: 5em; */
-        background-position: right;
+        background-position: right 40%;
         background-size: 64%;
         background-image: url("../Media/wps.jpg");
         background-repeat: no-repeat;
@@ -700,5 +724,9 @@ article.hidden{
         transform: translate(0,0) !important;
     }
 
-    
+    aside section {
+        position: absolute;
+        bottom: 0;   
+    }
 }
+

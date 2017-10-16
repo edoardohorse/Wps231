@@ -5,6 +5,8 @@ main[class="col-12"] img {
     margin-bottom: 2em;
     position: relative;
     display: inline-block;
+    max-width: 350px;
+
 }
 
 .section{
