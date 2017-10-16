@@ -98,12 +98,12 @@ main.home{
     display: none;
     /* max-width: 100%; */
     /* min-height: 200px; */
-    position: fixed;
+    /* position: fixed; */
     /* position: relative; */
     z-index: -1;
     width: 100%;
     height: 300px;
-    background-position: center -128px;
+    background-position: center center;
     background-size: cover;
     background-image: url(../Media/wps.jpg);
     background-repeat: no-repeat;
@@ -112,11 +112,11 @@ main.home{
 .interlaced {
     display: none;
     background-image: url("../Media/dot.jpg");
-    height: 100%;
+    height: 300px;
     background-repeat: repeat;
     background-position: left;
     background-size: contain;
-    z-index: -1;
+    z-index: 0;
     position: absolute;
     width: 100%;
     opacity: .2;
@@ -228,9 +228,9 @@ aside{
 #chiSiamo {
     display: block;
     background-color: white;
-    width: 100%;
+    /* width: 100%; */
     padding: 1em;
-    height: 300px;
+    /* height: 300px; */
     z-index: 6;
     font-size: 17px;
     text-align: justify;
@@ -276,6 +276,13 @@ footer{
     z-index: 6;
     padding-top: 1em;
     text-align: center;
+}
+
+#slogan{
+    padding-top: 2em;
+    font-size: 23px;"
+    float: right;
+    display: inline-block;
 }
 
 footer div{
@@ -421,12 +428,16 @@ article.hidden{
     article.open{
         transform: translate(0,0) !important;
     }
-    
+
+   
+
+    /*
     body{
         padding-top:100px;
     }
 
     header{
+        height:300px;
         position:fixed;
     }
 
@@ -435,10 +446,11 @@ article.hidden{
         top:100px;
     }
 
-    main{
+    main.home{
         height:600px;
         padding-top:300px !important;
     }
+    */
 
 
 }
@@ -499,7 +511,7 @@ article.hidden{
         min-height: 500px;
         /* padding-top: 5em; */
         background-position: right;
-        background-size: contain;
+        background-size: 64%;
         background-image: url("../Media/wps.jpg");
         background-repeat: no-repeat;
     }
@@ -555,10 +567,10 @@ article.hidden{
         top: 1em;
         margin: 2em;
         /* min-height: 60%; */
-        max-height: 60%;
+        /* max-height: 60%; */
         overflow: hidden;
         font-size: 18px;
-        max-width: 350px;
+        /*         max-width: 350px; */
         /* width: 35%; */
         color: black;
         padding: 1em;
@@ -566,6 +578,10 @@ article.hidden{
         box-shadow: 0 0 8px 1px rgba(0, 0, 0,.3);
         background-color: rgba(255, 255, 255, 1);
         z-index: 5;
+        height: 100%;
+        top: 0;
+        margin: 0;
+        width: 33.33%;
     }
     
     #hero{
@@ -647,6 +663,12 @@ article.hidden{
 
     footer{
         min-height: 200px;
+    }
+
+     #slogan{
+        float: right;
+        
+        "
     }
 
 
