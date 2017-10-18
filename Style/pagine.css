@@ -6,11 +6,23 @@ main[class="col-12"] img {
     position: relative;
     display: inline-block;
     max-width: 350px;
-
+    
 }
+
+
+.grafico{
+    max-width: none !important;
+    float: none !important;
+    width: 60%;
+}
+
 
 .section{
     max-width: 700px;
     text-align: justify;
 }
 
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}

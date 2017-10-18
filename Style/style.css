@@ -91,7 +91,7 @@ main.home{
     max-width: 1192px;
     min-height: 100%;
     overflow:auto;
-    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.12), 0px 2px 2px 0px rgba(0,0,0,0.24);    
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.12), 0px 2px 2px 0px rgba(0,0,0,0.24);
 }
 
 #hero {
@@ -605,7 +605,7 @@ article.hidden{
         height: 100%;
         top: 0;
         margin: 0;
-        width: 33.33%;
+        width: 34.33%;
     }
     
     #hero{
