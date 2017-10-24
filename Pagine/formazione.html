@@ -16,14 +16,10 @@
     </head>
     <body>
 
-        <!-- SDK Facebook -->
-        <div id="fb-root"></div>
-
-
-        <header class="col-12 dark-primary-color">
+            <header class="col-12 dark-primary-color">
             <a href=".." id="logo"></a>
 
-            <i id="hamburger" href="#"><div id="overlay"></div></i>
+            <a id="hamburger" href="#"><div id="overlay"></div></a>
             
             <nav>
                 <a href="..">Home</a>
@@ -31,20 +27,25 @@
                 <div class="menu">
                     <span>Servizi<i></i></span>
                     <div class="container">
-                        <a href="../Pagine/Dlgs231.html">Dlgs 231 - Rischio d'Impresa</a>
-                        <a href="../Pagine/comparto_tecnico.html">Comparto tecnico</a>
+                        <a href="../Pagine/dlgs231.html">Dlgs 231 - Rischio d'Impresa</a>
+                        <a href="../Pagine/sicurezza_lavoro.html">Sicurezza sul lavoro</a>
                         <a href="../Pagine/formazione.html">Formazione</a>
-                        <a href="../Pagine/haccp.html">HACCP e Sistemi di Gestione</a>
-                        <a href="../Pagine/privacy.html">Privacy</a>
+                        <a href="../Pagine/haccp.html">HACCP</a>
+                        <a href="../Pagine/sistemi_privacy.html">Sistemi di Gestione e Privacy</a>
                     </div>
                 </div>
             </nav>
         </header>    
     <main class="col-12">
         <div class="wrapper">
-            <p style="font-size: 25px;"><b>Formazione in WPS 231</b></p>
-            <img src="../Media/formazione.jpg">
-            <div class="section">
+            <!-- <p style="font-size: 25px;"><b>Formazione in WPS 231</b></p> -->
+            
+            <img src="../Media/DIAGRAMMA_2_1.svg" class="grafico" style="float: left;">     
+        
+            <img src="../Media/DIAGRAMMA_3_1.svg" class="grafico" style="float: right;">
+            <div class="section center">
+
+                    
                 <p>
                     WPS 231 offre una risposta completa alle esigenze formative aziendali
                     nell’ambito della Salute e Sicurezza nei luoghi di lavoro.
@@ -121,16 +122,20 @@
                 </p>
                 <br>
                 <br>
-                <img src="../Media/DIAGRAMMA_2_1.svg" class="grafico" >
-                <img src="../Media/DIAGRAMMA_3_1.svg" class="grafico" >
             </div>
-            
+       
+        
+    
+
             
            
+
+
         </div>
-    </main>
+</main>
+  
             <footer class="col-12">
-            <div id="numeroVerde"></div>
+            <a href="tel:800123924"><div id="numeroVerde"></div></a>
             
             <div>
                 <img src="../Media/italia2.png" id="italia">
@@ -154,14 +159,4 @@
                 
         </footer>    
     </body>
-    <script>
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v2.10";
-            fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-    </script>
-
 </html>

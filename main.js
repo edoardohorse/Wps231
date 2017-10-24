@@ -1,9 +1,10 @@
 var onMobile = false;
 var allNewsPreviews = [].slice.call(document.querySelectorAll(".news-list article"));
-var allNewsFullPage = [].slice.call(document.querySelectorAll("#wrapperNews article"));
+var allNewsFullPage = [].slice.call(document.querySelectorAll("#wrapperModal article"));
 var newsEl = document.querySelector(".news");
 var newsListEl  = document.querySelector(".news-list");
-
+var previousArrowEl = document.getElementById("previousNews");
+var nextArrowEl = document.getElementById("nextNews");
 var hamburgerEl = document.getElementById("hamburger");
 var newsShowed = 1;
 var offsetNews = 0;
@@ -33,6 +34,7 @@ function sizeNews(e){
             },100)
             
         }
+
     }   
     else{
         for( i in allNewsPreviews){
@@ -44,7 +46,13 @@ function goPreviousNews(){
     if( newsShowed > 1 && onMobile ){
         offsetNews -= allNewsPreviews[0].clientWidth + 16
         newsListEl.style.transform = "translate(-"+ offsetNews +"px,0px)"
+        nextArrowEl.style.display = "inline-block";
         newsShowed--
+    }
+    
+    if(newsShowed == 1){
+        nextArrowEl.style.display = "inline-block";
+        previousArrowEl.style.display = "none";
     }
 }
 function goNextNews(){
@@ -52,12 +60,18 @@ function goNextNews(){
         offsetNews += allNewsPreviews[0].clientWidth + 16
         newsListEl.style.transform = "translate(-"+ offsetNews +"px,0px)"
         newsShowed++
+        previousArrowEl.style.display = "inline-block";
+    }
+    if(newsShowed == allNewsPreviews.length){
+        nextArrowEl.style.display = "none";
     }
 }
 window.onresize = sizeNews;
 window.addEventListener("DOMContentLoaded", sizeNews);
-document.getElementById("previousNews").addEventListener("click", goPreviousNews)
-document.getElementById("nextNews").addEventListener("click", goNextNews)
+
+previousArrowEl.addEventListener("click", goPreviousNews)
+nextArrowEl.addEventListener("click", goNextNews)
+previousArrowEl.style.display = "none"
 
 var allNews = [];
 
@@ -78,7 +92,7 @@ function News( news ){
     this.isOpened = false;
     this.newsPreview = news
     this.newsFullPage = allNewsFullPage[ allNewsPreviews.indexOf(news) ]
-    this.wrapperNewsFullPage = this.newsFullPage.parentElement    
+    this.wrapperModalFullPage = this.newsFullPage.parentElement    
 
     this.init = function(){
 
@@ -113,7 +127,7 @@ function News( news ){
         document.body.style.overflow = "hidden";
 
         setTimeout(function(){
-            this.wrapperNewsFullPage.classList.add("overlay");
+            this.wrapperModalFullPage.classList.add("overlay");
             this.newsFullPage.classList.add("open");
         }.bind(this),300)
         
@@ -127,7 +141,7 @@ function News( news ){
             return;
         else{
 
-            this.wrapperNewsFullPage.classList.remove("overlay");
+            this.wrapperModalFullPage.classList.remove("overlay");
             this.newsFullPage.classList.remove("open");
 
             document.body.style.overflow = "auto";

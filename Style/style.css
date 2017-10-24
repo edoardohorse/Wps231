@@ -69,8 +69,9 @@ main{
     padding-left: 10px;
     padding-right: 10px;
     font-size: 15px;
-    min-height: 100%;
+    min-height: calc(100% - 300px);
     z-index: 5;
+    box-shadow: 0px 0px 17px 3px rgba(0, 0, 0, .3);
 }
 
 main.home #hero,
@@ -85,11 +86,12 @@ main.home{
 
 .wrapper{
     padding: 1em;
+    min-height: calc(100% - 300px);
     background-color: white;
     margin-left: auto;
     margin-right: auto;
     max-width: 1192px;
-    min-height: 100%;
+    /* min-height: 100%; */
     overflow:auto;
     box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.12), 0px 2px 2px 0px rgba(0,0,0,0.24);
 }
@@ -131,7 +133,7 @@ aside{
     color: white;
     text-align: center;
     overflow: hidden;
-    z-index: 5;
+    z-index: 4;
     /* min-height: 350px; */
 }
 
@@ -226,11 +228,16 @@ aside{
 
 aside section {
     position: relative;
-    height: 250px;
+    height: 200px;
+    width: 95%;
+}
+
+section > p{
+    margin-left:1em;
 }
 
 section img{
-    width:250px;
+    width: 200px;
     margin-top:1em;
 }
 
@@ -349,7 +356,7 @@ footer div{
     /* float: left; */
 }
 
-#wrapperNews {
+#wrapperModal {
     position: fixed;
     height: 100%;
     width: 100%;
@@ -362,17 +369,17 @@ footer div{
     transition: all 300ms;
 }
 
-#wrapperNews.overlay{
+#wrapperModal.overlay{
     pointer-events: auto;
     /* z-index: 20; */
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* #wrapperNews * {
+/* #wrapperModal * {
     color: white;
 } */
 
-#wrapperNews article {
+#wrapperModal article {
     top: 0;
     margin-left: auto;
     margin-right: auto;
@@ -394,7 +401,7 @@ article.hidden{
 }
 
 
-#wrapperNews {
+#wrapperModal {
     text-align: justify;
 }
 
@@ -408,6 +415,8 @@ article.hidden{
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    z-index: 99;
+    /* position: absolute; */
 }
 
 /* For mobile phones: */
@@ -429,7 +438,7 @@ article.hidden{
     }
 
     nav a {
-        height: 65px;
+        /* height: 65px; */
         display: block;
         font-size: 20px;
         text-align: center;
@@ -525,7 +534,7 @@ article.hidden{
     }
 
     main{
-        min-height: 100%;
+        min-height: calc(100% - 300px);
         padding: 0;
         font-size: 16px;
     }
@@ -707,7 +716,7 @@ article.hidden{
 
  
 
-    #wrapperNews article{
+    #wrapperModal article{
         margin-top: 2em;
         max-width: 850px;
         padding: 2em;
