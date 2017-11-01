@@ -3,6 +3,10 @@
 DirectoryIndex index.html
 RewriteBase /
 
+ErrorDocument 404 https://www.wps231.it/
+
+
+
 # RewriteEngine off
 # RewriteCond %{HTTP_HOST} !^wps231.it$ [NC]  
 # RewriteRule .? http://wps231.it%{REQUEST_URI} [R=301,L]
